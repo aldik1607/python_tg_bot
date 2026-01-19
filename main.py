@@ -21,6 +21,15 @@ async def start_handler(message: Message):
 async def music_handler(message: Message):
     await message.answer("Playing music...")
 
+@dp.message(Command("help"))
+async def help_handler(message: Message):
+    help_text = (
+        "/start - Start the bot\n"
+        "/music - Play music\n"
+        "/help - Show this help message"
+    )
+    await message.answer(help_text)
+
 async def main():
     await dp.start_polling(bot)
 
